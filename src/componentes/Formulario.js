@@ -1,26 +1,34 @@
-import React from "react";
-import { useState } from "react";
+import React from 'react'
 
-class Formulario extends React.Component {
-    render(){
-        return( 
-        <>
-       
-        <form>
-          <label>Nombre Mascota</label><input type="text" name="mascota" class="u-full-width" placeholder="Nombre Mascota" value="" />
-          <label>Nombre Dueño</label><input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota" value="" />
-          <label>Fecha</label><input type="date" name="fecha" class="u-full-width" value="" />
-          <label>hora</label><input type="time" name="hora" class="u-full-width" value="" />
-          <label>Sintomas</label><textarea name="sintomas" class="u-full-width"></textarea>
-          <button type="submit" class="u-full-width button-primary">Agregar Cita</button>
-          
-        </form>
-      </>
-      );
-    }
-   
+export default function Formulario({setLista,lista}) {
+  const crearCita = (e) => {
+    console.log(e.target.mascota.value)
+    console.log(e.target.propietario.value)
+    console.log( e.target.fecha.value);
+    //creo new array a partir de lista
+    let newarray=[lista]
+    //creo mi objeto
+    const cita = [
+      {nombre: e.target.mascota.value,
+        propetario: e.target.propietario.value,
+        fecha: e.target.fecha.value,
+        hora: e.target.hora.value,
+      sintomas: e.target.sintomas.value}
+    ]
+    //agrego mi objeto a new array
+    newarray.push(cita)
+    console.log(newarray);
+    setLista(newarray);
   }
-  //En el boton agregar una funcion que cree el objeto
-
-
-export default Formulario;
+  return (
+    <form onSubmit={crearCita}>       
+          <label>Nombre Mascota</label>
+          <input type="text" name="mascota" class="u-full-width" placeholder="Nombre Mascota" required="true" />
+          <label>Nombre Dueño</label><input type="text" name="propietario" class="u-full-width" placeholder="Nombre dueño de la mascota" required="true"   />
+          <label>Fecha</label><input type="date" name="fecha" class="u-full-width" required="true"/>
+          <label>hora</label><input type="time" name="hora" class="u-full-width" required="true"/>
+          <label>Sintomas</label><textarea name="sintomas" class="u-full-width"required="true"></textarea>
+          <button type="submit" class="u-full-width button-primary"  >Agregar Cita</button>
+      </form>
+  )
+}
