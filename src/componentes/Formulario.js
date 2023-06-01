@@ -2,23 +2,22 @@ import React from 'react'
 
 export default function Formulario({setLista,lista}) {
   const crearCita = (e) => {
+    e.preventDefault();
     console.log(e.target.mascota.value)
     console.log(e.target.propietario.value)
     console.log( e.target.fecha.value);
     //creo new array a partir de lista
-    let newarray=[lista]
+    let newarray=lista;
     //creo mi objeto
-    const cita = [
+    const cita = 
       {nombre: e.target.mascota.value,
         propetario: e.target.propietario.value,
         fecha: e.target.fecha.value,
         hora: e.target.hora.value,
       sintomas: e.target.sintomas.value}
-    ]
-    //agrego mi objeto a new array
-    newarray.push(cita)
-    console.log(newarray);
-    setLista(newarray);
+    
+    //agrego mi objeto a new array    
+    setLista([...lista,cita]);
   }
   return (
     <form onSubmit={crearCita}>       
