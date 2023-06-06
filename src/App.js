@@ -32,7 +32,7 @@ function App() {
             
             <div class="one-half column">
               <h2>Administra tus citas</h2>
-              <ListadoCitas lista={lista}/>
+              <ListadoCitas setLista={setLista} lista={lista}/>
               
             </div>
 

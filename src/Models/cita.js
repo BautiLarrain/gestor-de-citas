@@ -1,13 +1,12 @@
 class cita{
-
     nombre;
-    propetario;
+    propietario;
     fecha;
     hora;
     sintomas;
-    constructor(nombre,propetario,fecha,hora,sintomas){
+    constructor(nombre,propietario,fecha,hora,sintomas){
         this.nombre=nombre
-        this.propetario=propetario
+        this.propietario=propietario
         this.fecha=fecha
         this.hora=hora
         this.sintomas=sintomas
