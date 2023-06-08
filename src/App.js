@@ -10,6 +10,7 @@ import ListadoCitas from './componentes/ListadoCitas';
 function App() {
 
   const [lista,setLista] = useState([]);
+  const [idCounter,setIdCounter] = useState(0)
 
   /*const lista = [
     {nombre: "Boycka",
@@ -19,6 +20,12 @@ function App() {
       sintomas: "le duele la panza"}
   ]*/
 
+  const getId = ()=>{
+    setIdCounter(idCounter+1)
+
+    return idCounter;
+  }
+
   return (
     <>
       <div id="root">
@@ -27,7 +34,7 @@ function App() {
           <div class="row">
             <div class="one-half column">
               <h2>Crear mi Cita</h2>
-              <Formulario setLista={setLista} lista={lista} />
+              <Formulario setLista={setLista} lista={lista} getId={getId} />
             </div>
             
             <div class="one-half column">

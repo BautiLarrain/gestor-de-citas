@@ -8,15 +8,14 @@ const ListadoCitas = ({setLista,lista }) => {
         { lista.map((cita) => (
           
           <Cita 
-          nombre={cita.nombre} 
-          propietario={cita.propietario} 
-          fecha={cita.fecha} 
-          hora={cita.hora} 
-          sintomas={cita.sintomas}
+          cita={cita}
           lista={lista}
           setLista={setLista}  />
+   
         ))}
+
       </ul>
+      
     );
   };
   

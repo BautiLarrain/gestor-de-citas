@@ -1,17 +1,15 @@
 
 import React from 'react'
 
-export default function Cita({nombre,propietario,fecha,hora,sintomas,lista,setLista}) {
-  const Eliminar=(nombre)=>{
+export default function Cita({cita,lista,setLista}) {
+  const {nombre,propietario,fecha,hora,sintomas,id} = cita;
   
-    /*let listaNueva
-    lista.map(cita=> {
-      if (cita.nombre===nombre) {
-      const index = lista.indexOf(nombre);
-      listaNueva = lista.splice(index, 1);
-    }})
-    setLista([...lista,listaNueva]);
-    console.log(nombre);*/
+  const Eliminar=(id)=>{
+    
+    const listaNueva=lista.filter(Cita=>Cita.id != id)
+    
+    //setLista([...lista,listaNueva]);
+    
   }
   return (
     <div class="cita">
@@ -20,7 +18,7 @@ export default function Cita({nombre,propietario,fecha,hora,sintomas,lista,setLi
     <p>Fecha: <span>{fecha}</span></p>
     <p>Hora: <span>{hora}</span></p>
     <p>Sintomas: <span>{sintomas}</span></p>
-    <button class="button elimnar u-full-width" onChange={Eliminar(nombre)}>Eliminar ×</button>
+    <button class="button elimnar u-full-width" onChange={Eliminar(id)}>Eliminar ×</button>
   </div>
   )
 }

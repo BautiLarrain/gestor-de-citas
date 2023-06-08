@@ -1,4 +1,5 @@
 class cita{
+    id;
     nombre;
     propietario;
     fecha;
@@ -10,7 +11,10 @@ class cita{
         this.fecha=fecha
         this.hora=hora
         this.sintomas=sintomas
+        this.id=id
     }
+    
+  
 }
 
 export default cita
